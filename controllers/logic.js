@@ -68,7 +68,7 @@ exports.Emailverify = async (req, res) => {
             from: 'abhinavabhiz088@gmail.com',
             to: email,
             subject: 'Reset your password',
-            text: `http://localhost:3000/registeruser/${email}`
+            text: `https://expensemanage-0hrb.onrender.com/registeruser/${email}`
           };
           
           transporter.sendMail(mailOptions, function(error, info){
