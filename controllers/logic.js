@@ -40,6 +40,49 @@ exports.userRegister = async (req, res) => {
 
     }
 
+}
+// for verify email
+exports.Emailverify = async (req, res) => {
+   
+
+
+    const { email } = req.body
+  
+
+    if ( !email ) {
+
+        res.status(401).json("all inputs are required")
+
+    }
+    try{
+        
+        var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+              user: 'abhinavabhiz088@gmail.com',
+              pass: 'lmgjytjilobcyjmt'
+            }
+          });
+          
+          var mailOptions = {
+            from: 'abhinavabhiz088@gmail.com',
+            to: email,
+            subject: 'Reset your password',
+            text: `http://localhost:3000/registeruser/${email}`
+          };
+          
+          transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+              console.log(error);
+            } else {
+            return res.send({message:"Click the link on your mail to reset password"})
+            }
+          });
+
+    }catch (error) {
+        res.status(402).json(error)
+
+    }
 
 
 }
@@ -93,7 +136,7 @@ exports.passReset = async (req, res) => {
     const { email,uid } = req.body
   
 
-    if ( !email || !uid ) {
+    if ( !email ) {
 
         res.status(401).json("all inputs are required")
 
@@ -104,6 +147,7 @@ exports.passReset = async (req, res) => {
         if (!preUser) {
             return res.send({message:"User not existed"})
         }
+        const uid=preUser._id
         var transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
@@ -123,7 +167,7 @@ exports.passReset = async (req, res) => {
             if (error) {
               console.log(error);
             } else {
-            return res.send({message:"Success"})
+            return res.send({message:"Click the link on your mail to reset password"})
             }
           });
 
@@ -297,7 +341,7 @@ exports.getHistory = async (req, res) => {
 
     catch (err) {
 
-        res.status(401).json("user not found")
+        res.status(401).json(" not found")
 
     }
 

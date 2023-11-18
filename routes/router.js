@@ -4,7 +4,7 @@
 const express=require('express')
 const { userRegister, loginRegister,expensAdd,
     deleteExpense,getHistory,getUser,accDelete,expensEdit
-    ,passReset,getallTransactions,getExpSingle, updatePassword} = require('../controllers/logic')
+    ,passReset,getallTransactions,getExpSingle, updatePassword,Emailverify} = require('../controllers/logic')
 const { decodeToken } = require('../middleware/auth');
 
 //create an object for router class in object
@@ -12,11 +12,13 @@ const router=new express.Router()
 
 //route for register
 router.post('/users/register',userRegister)
+//route for verify email
+router.post('/users/verifymail',Emailverify)
 //roote for login
 router.post('/users/login',loginRegister)
 //route for reset pass
 router.post('/users/resetpass',passReset)
-//route for addexpense
+//route for updatepass
 router.post('/users/updatepass',updatePassword)
 //route for addexpense
 router.post('/users/addexp',expensAdd)
