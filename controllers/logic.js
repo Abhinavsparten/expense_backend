@@ -75,7 +75,7 @@ exports.Emailverify = async (req, res) => {
             if (error) {
               console.log(error);
             } else {
-            return res.send({message:"Click the link on your mail to reset password"})
+            return res.send({message:"Click the link on your mail for reset password"})
             }
           });
 
