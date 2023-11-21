@@ -68,7 +68,7 @@ exports.Emailverify = async (req, res) => {
             from: 'abhinavabhiz088@gmail.com',
             to: email,
             subject: 'Reset your password',
-            text: `https://comfy-madeleine-1f9385.netlify.app/registeruser/${email}`
+            text: `https://joyful-cassata-402501.netlify.app/registeruser/${email}`
           };
           
           transporter.sendMail(mailOptions, function(error, info){
