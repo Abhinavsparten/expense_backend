@@ -160,7 +160,7 @@ exports.passReset = async (req, res) => {
             from: 'abhinavabhiz088@gmail.com',
             to: email,
             subject: 'Reset your password',
-            text: `https://comfy-madeleine-1f9385.netlify.app/updatepass/${uid}`
+            text: `https://joyful-cassata-402501.netlify.app/updatepass/${uid}`
           };
           
           transporter.sendMail(mailOptions, function(error, info){
