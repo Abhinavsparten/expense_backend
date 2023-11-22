@@ -103,9 +103,7 @@ exports.loginRegister = async (req, res) => {
         const preUser = await users.users.findOne({email})
   
         if (preUser) {
-
-        //    localStorage.setItem("id",preUser._id)
-           console.log(preUser._id);
+           
             //token generation
             const token=jwt.sign(email,"secretkey123");
            if(psw === preUser.psw){
