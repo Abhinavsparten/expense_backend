@@ -104,7 +104,8 @@ exports.loginRegister = async (req, res) => {
   
         if (preUser) {
 
-           localStorage.setItem("id",preUser._id)
+        //    localStorage.setItem("id",preUser._id)
+           console.log(preUser._id);
             //token generation
             const token=jwt.sign(email,"secretkey123");
            if(psw === preUser.psw){
