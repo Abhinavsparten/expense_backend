@@ -67,7 +67,7 @@ exports.Emailverify = async (req, res) => {
           var mailOptions = {
             from: 'abhinavabhiz088@gmail.com',
             to: email,
-            subject: 'Reset your password',
+            subject: 'Verify your email',
             text: `https://epexpense-tracker-pro.netlify.app/registeruser/${email}`
           };
           
